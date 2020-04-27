@@ -1,0 +1,15 @@
+﻿
+body{
+    background-color: #FCE8A3;
+}
+header, footer{
+    text-align: center;
+    font-size: 25px;
+    font-family: Calibri;
+    color: darkgray;
+    background-color: #F0DA8E;
+    border-radius: 10px;
+    border: 3px #F0DA8E solid;
+    margin-bottom: 2%;
+}
+
