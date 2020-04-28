@@ -12,7 +12,8 @@
                                $row['fname'],
                                $row['lname'],
                                $row['steps'],
-                               $row['type']);
+                               $row['type'],
+                               $row['description']);
         array_push($response, $result);
     }
     $connection->close();

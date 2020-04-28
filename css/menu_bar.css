@@ -16,7 +16,12 @@
 }
 
 .searchButton{
-    margin-left: 40%;
+    margin-left: 32%;
+    border-radius: 8px;
+    font-size: 20px;
+    font-family: "Candara Light";
+    color: dimgrey;
+    width: 36%;
 }
 
 

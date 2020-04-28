@@ -27,9 +27,13 @@ function writeRecipe(recipeJSON){
 
 function parseRecipes(data) {
     if(data.length < 5){
+        let emptyMessage = document.createElement("p");
+        $(emptyMessage).attr("id","no_results_msg")
+            .css("text-size","20px");
+        emptyMessage.innerHTML = "Search returned 0 results!";
+        document.getElementById("rec").appendChild(emptyMessage);
         return;
     }
-    $("#rec").empty();
     let firstIndex = data.indexOf('{');
     let secondIndex = data.indexOf('}');
     while (data.length >10){
@@ -45,39 +49,42 @@ function parseRecipes(data) {
 
 }
 
-function showRecipes(URL){
-   $.get(
-       URL,
-       data => {
-           parseRecipes(data);
-       }
-   )
-}
 
 $(document).ready(function () {
+    var lastSearch = "";
+    var ok = false;
     $.ajax({
         url: "php/get_all.php",
         type:  'GET',
         action: 'getAll',
         success: (response) =>{
-            showRecipes('php/get_all.php');
+            parseRecipes(response);
         }
     });
     
     $("button").click(function () {
         let typeContent = $("#search").val();
+        $("#rec").empty();
+        if(ok) {
+            console.log(lastSearch);
+            console.log(ok);
+            lastSearchObj = document.createElement("div");
+            lastSearchObj.innerHTML = "<p>Last search key is: \' "+lastSearch+"\'</p>";
+            document.getElementById("rec").appendChild(lastSearchObj);
+        }
+        else{
+            ok=true;
+        }
         if(typeContent.length === 0){
             $.ajax({
                 url: "php/get_all.php",
                 type: 'GET',
                 success: (response) => {
-                    showRecipes('php/get_all.php');
+                    parseRecipes(response);
                 }
             });
         }
         else{
-            //todo: WHEN WE HAVE A SELECTION CRITERIA 
-            ///todo: make same_type.php work ...
             $.ajax(
                 {
                     url: "php/same_type.php",
@@ -86,7 +93,8 @@ $(document).ready(function () {
                         type_rec: typeContent
                     },
                     success: (response) => {
-                        showRecipes('php/same_type.php');
+                        lastSearch = typeContent;
+                        parseRecipes(response);
                     }
                 }
             );
