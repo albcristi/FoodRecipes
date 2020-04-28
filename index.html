@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/image_style.css">
     <link rel="stylesheet" type="text/css" href="css/recipe_style.css">
     <link rel="stylesheet" type="text/css" href="css/menu_bar.css">
+    <link rel="stylesheet" type="text/css" href="css/crud_boxex.css">
     <script src="js/jquery-2.0.3.js"></script>
     <script src="js/add_life.js"></script>
 </head>
@@ -20,7 +21,39 @@
         <div class="menuBar">
             <label>Recipe Type:</label>
             <textarea id="search"></textarea>
-            <button class="searchButton">Search</button>
+            <button class="searchButton" id="sbut">Search</button>
+            <div class="crudOperations" id="crudop">
+                <p id="p1">Add</p>
+                <p id="p2">Remove</p>
+                <p id="p3">Update</p>
+            </div>
+            <div class="crudContainer" id="crudc">
+                <div id="addContainer">
+                    <p>Name</p>
+                    <textarea class="getInp" id="getNameAdd"></textarea>
+                    <p>Description</p>
+                    <textarea class="getInp" id="getDescrAdd"></textarea>
+                    <p>Steps</p>
+                    <textarea class="getInp" id="getStepsAdd"></textarea>
+                    <p>Type</p>
+                    <textarea class="getInp" id="getTypeAdd"></textarea>
+                    <div id="addButtonCon">
+                         <button id="addButton">Add</button>
+                    </div>    
+                </div>
+                <div id="removeContainer">
+                    <p>Id</p>
+                    <textarea class="getInp" id="getIdRemove"></textarea>
+                    <div id="addButtonCon">
+                        <button id="removeButton">Remove</button>
+                    </div>
+                </div>
+                <div id="updateContainer">
+                    <div  id="updateButtonCon">
+                        <button id="updateButton">Update</button>
+                    </div>
+                </div>
+            </div>
             <label></label>
         </div>
         <div class="recipes" id="rec">

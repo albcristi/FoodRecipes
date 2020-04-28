@@ -24,4 +24,30 @@
     width: 36%;
 }
 
+#crudop{
+    display: flex;
+    justify-content: center;
+}
+
+#crudop p{
+    padding: 2.5%;
+    font-family: "Candara Light";
+    background-color: #F0DA8E;
+}
+
+#p1{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#p3{
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#p2{
+    border-left: 2px dimgray solid;
+    border-right: 2px dimgray solid;
+}
+
 

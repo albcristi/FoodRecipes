@@ -1,0 +1,41 @@
+﻿
+#addContainer, #removeContainer, #updateContainer{
+    margin-left: 30%;
+    background-color: #F0DA8E;
+    margin-right: 30%;
+    border-radius: 10px;
+    padding: 0.4%;
+}
+
+#addContainer  p, #removeContainer p, #updateContainer p{
+    text-align: center;
+    font-family:"Candara Light" ;
+    font-size: 25px;
+    color: darkslategrey;
+}
+
+#addContainer  textarea, #removeContainer  textarea, #updateContainer textarea{
+    margin-left: 35%;
+}
+
+#updateButtonCon, #removeButtonCon, #addButtonCon {
+    padding: 3%;
+    margin-left: 35%;
+}
+
+#updateButton, #removeButton, #addButton{
+    font-family: "Candara Light";
+    font-size: 20px;
+    text-align: center;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    border-radius: 8px;
+}
+
+#addContainer textarea, #removeContainer textarea, #updateContainer textarea{
+    padding: 3px;
+    border-radius: 3px;
+    background-color: wheat;
+    width: 30%;
+    height: 5%;
+}

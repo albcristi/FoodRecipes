@@ -1,7 +1,6 @@
 ﻿
 
 function writeRecipe(recipeJSON){
-    console.log(recipeJSON);
     let recipe = document.createElement("div");
     let nameParagraph = document.createElement("p");
     let chefName = document.createElement("p");
@@ -53,6 +52,10 @@ function parseRecipes(data) {
 $(document).ready(function () {
     var lastSearch = "";
     var ok = false;
+    $("#addContainer").css("display","none");
+    $("#removeContainer").css("display", "none");
+    $("#updateContainer").css("display", "none");
+    
     $.ajax({
         url: "php/get_all.php",
         type:  'GET',
@@ -62,13 +65,11 @@ $(document).ready(function () {
         }
     });
     
-    $("button").click(function () {
+    $("#sbut").click(function () {
         let typeContent = $("#search").val();
         $("#rec").empty();
         if(ok) {
-            console.log(lastSearch);
-            console.log(ok);
-            lastSearchObj = document.createElement("div");
+            let lastSearchObj = document.createElement("div");
             lastSearchObj.innerHTML = "<p>Last search key is: \' "+lastSearch+"\'</p>";
             document.getElementById("rec").appendChild(lastSearchObj);
         }
@@ -93,11 +94,57 @@ $(document).ready(function () {
                         type_rec: typeContent
                     },
                     success: (response) => {
-                        lastSearch = typeContent;
                         parseRecipes(response);
                     }
                 }
             );
         }
+    });
+    
+    $("#p1").click(function () {
+        $("#addContainer").css("display","block");
+        $("#rec").empty();
+    });
+    
+    $("#p2").click(function () {
+        $("#removeContainer").css("display", "block");
+        $("#rec").empty();
+    });
+    
+    $("#p3").click(function () {
+       $("#updateContainer").css("display", "block");
+        $("#rec").empty();
+    });
+    
+    $("#addButton").click(function () {
+        //TODO: IMPLEMENT ADD OPERATION
+    });
+    
+    $("#removeButton").click(function () {
+        //TODO: IMPLEMENT REMOVE OPERATION
+        let recipeId = $("#getIdRemove").val();
+        $.ajax({
+                url: 'php/remove_recipe.php',
+                type: 'GET',
+                data: { id:  recipeId},
+                success: (response) => {
+                    alert(response);
+                    $("#removeContainer").css("display", "none");
+                    
+                    $.ajax({
+                        url: "php/get_all.php",
+                        type: 'GET',
+                        success: (response) => {
+                            parseRecipes(response);
+                        }
+                    });
+                }
+            }
+        )
+    });
+    
+    $("#updateButton").click(function () {
+        //TODO: IMPLEMENT UPDATE OPERATION
+        
     });
 });
