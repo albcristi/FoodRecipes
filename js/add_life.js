@@ -132,7 +132,23 @@ $(document).ready(function () {
     });
     
     $("#addButton").click(function () {
-        //TODO: IMPLEMENT ADD OPERATION
+        let description = $("#getDescrAdd").val();
+        let steps = $("#getStepsAdd").val();
+        let name = $("#getNameAdd").val();
+        let type = $("#getTypeAdd").val();
+        $.ajax({
+            url: "php/add_recipe.php",
+            type: 'GET',
+            data: {
+                type: type,
+                name: name,
+                steps: steps,
+                description: description
+            },
+            success: (response) => {
+                crudeCallBackFct(response);
+            }
+        })
     });
     
     $("#removeButton").click(function () {
