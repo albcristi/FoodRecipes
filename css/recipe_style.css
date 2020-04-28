@@ -1,0 +1,12 @@
+﻿
+.recipes{
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.recipes div{
+    margin-top:2%;
+    background-color: #F0DA8E;
+    padding: 10px;
+    border-radius: 8px;
+}

@@ -1,0 +1,22 @@
+﻿.menuBar label, #search{
+    margin-left: 40%;
+    margin-right: 40%;
+}
+.menuBar label{
+    font-family: "Calibri Light";
+    font-size: 20px;
+    color: darkgray;
+}
+#search{
+    padding: 3px;
+    border-radius: 3px;
+    background-color: wheat;
+    width: 20%;
+    height: 5%;
+}
+
+.searchButton{
+    margin-left: 40%;
+}
+
+

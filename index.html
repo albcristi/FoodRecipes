@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <title>Food Recipes</title>
     <link rel="stylesheet" type="text/css" href="css/pagestyle.css"> 
+    <link rel="stylesheet" type="text/css" href="css/image_style.css">
+    <link rel="stylesheet" type="text/css" href="css/recipe_style.css">
+    <link rel="stylesheet" type="text/css" href="css/menu_bar.css">
+    <script src="js/jquery-2.0.3.js"></script>
+    <script src="js/add_life.js"></script>
 </head>
 <body>
     <header>Welcome to the Cuisine for All</header>
+    <div class="main_part">
+        <div class="imgContainer">
+            <img class="image" id="im1" src="images/homeimage.jpg">
+        </div>
+        
+        <div class="menuBar">
+            <label>Recipe Type:</label>
+            <textarea id="search"></textarea>
+            <button class="searchButton">Search</button>
+            <label></label>
+        </div>
+        
+        <div class="recipes" id="rec">
+        </div>
+    </div>
     <footer>Created by Alb Dan-Cristian</footer>
 </body>
 </html>
