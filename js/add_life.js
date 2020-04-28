@@ -48,14 +48,28 @@ function parseRecipes(data) {
 
 }
 
+function hideCrudBoxes(){
+    $("#addContainer").css("display","none");
+    $("#removeContainer").css("display", "none");
+    $("#updateContainer").css("display", "none");
+}
+
+function crudeCallBackFct(response){
+    alert(response);
+    hideCrudBoxes();
+    $.ajax({
+        url: "php/get_all.php",
+        type: 'GET',
+        success: (response) => {
+            parseRecipes(response);
+        }
+    });
+}
 
 $(document).ready(function () {
     var lastSearch = "";
     var ok = false;
-    $("#addContainer").css("display","none");
-    $("#removeContainer").css("display", "none");
-    $("#updateContainer").css("display", "none");
-    
+    hideCrudBoxes(); 
     $.ajax({
         url: "php/get_all.php",
         type:  'GET',
@@ -76,6 +90,7 @@ $(document).ready(function () {
         else{
             ok=true;
         }
+        lastSearch = typeContent;
         if(typeContent.length === 0){
             $.ajax({
                 url: "php/get_all.php",
@@ -121,30 +136,34 @@ $(document).ready(function () {
     });
     
     $("#removeButton").click(function () {
-        //TODO: IMPLEMENT REMOVE OPERATION
         let recipeId = $("#getIdRemove").val();
         $.ajax({
                 url: 'php/remove_recipe.php',
                 type: 'GET',
                 data: { id:  recipeId},
                 success: (response) => {
-                    alert(response);
-                    $("#removeContainer").css("display", "none");
-                    
-                    $.ajax({
-                        url: "php/get_all.php",
-                        type: 'GET',
-                        success: (response) => {
-                            parseRecipes(response);
-                        }
-                    });
+                    crudeCallBackFct(response);
                 }
             }
         )
     });
     
     $("#updateButton").click(function () {
-        //TODO: IMPLEMENT UPDATE OPERATION
+        let recipeId = $("#getIdUpdate").val();
+        let description = $("#getDescrUpdate").val();
+        let steps = $("#getStepsUpdate").val();
+        $.ajax({
+            url:  "php/update_recipe.php",
+            type: 'GET',
+            data: {
+                id: recipeId,
+                description: description,
+                steps: steps
+            },
+            success: (response) =>{
+                crudeCallBackFct(response);
+            }
+        });
         
     });
 });
