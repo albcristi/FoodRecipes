@@ -80,6 +80,9 @@ $(document).ready(function () {
     });
     
     $("#sbut").click(function () {
+        $("#addContainer").css("display", "none");
+        $("#removeContainer").css("display", "none");
+        $("#updateContainer").css("display","none");
         let typeContent = $("#search").val();
         $("#rec").empty();
         if(ok) {
