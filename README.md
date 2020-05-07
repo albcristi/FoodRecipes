@@ -12,7 +12,7 @@ Write a web application for managing food recipes. The application should mainta
 
 * I have used [XAMPP](https://www.apachefriends.org/ro/index.html)
     * DB: MySql created using the myPhpAdmin from XAMPP
-* Packeges that I used in the XAMPP installer:
+* Packages that I used in the XAMPP installer:
     * mysql
     * php
     * myphpadmin
