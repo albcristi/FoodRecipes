@@ -5,10 +5,10 @@
        $steps = $_GET['steps'];
        if($connection->query("select id from recipes where id=$id")->num_rows == 0){
             $connection->close();
-            echo "Record not registered in the database";
+            echo "Mmm...We couldn't find this recipe. Try again!";
             return;
        }
        $connection->query("update recipes set description='$description', steps='$steps' where id=$id");
        $connection->close();
-       echo "Record has been updated";
+       echo "Thanks for your contribution. Together we will make the best of our recipes!";
 ?>

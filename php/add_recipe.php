@@ -9,5 +9,5 @@
      $type = $_GET['type'];
      $connection->query("insert into recipes (id, chefId, name, description, steps, type) values ($id, 5, '$name', '$description', '$steps', '$type')");
      $connection->close();
-     echo "Recipe added to DB, check recipe with ID=$id";
+     echo "Thanks for your contribution! Your recipe has the ID $id";
 ?>
