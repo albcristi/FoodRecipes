@@ -117,16 +117,22 @@ $(document).ready(function () {
     });
     
     $("#p1").click(function () {
+        $("#removeContainer").css("display", "none");
+        $("#updateContainer").css("display","none");
         $("#addContainer").css("display","block");
         $("#rec").empty();
     });
     
     $("#p2").click(function () {
+        $("#updateContainer").css("display","none");
+        $("#addContainer").css("display","none");
         $("#removeContainer").css("display", "block");
         $("#rec").empty();
     });
     
     $("#p3").click(function () {
+        $("#addContainer").css("display","none");
+        $("#removeContainer").css("display","none");
        $("#updateContainer").css("display", "block");
         $("#rec").empty();
     });
